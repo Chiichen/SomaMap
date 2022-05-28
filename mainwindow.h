@@ -1,7 +1,6 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
-#include <QMainWindow>
+#include"global.h"
 #include"myglwidget.h"
 #include"square.h"
 QT_BEGIN_NAMESPACE
@@ -21,7 +20,11 @@ private slots:
 
    void on_build2_clicked();
 
-   void on_resetrotate_clicked();
+   //void on_resetrotate_clicked();
+
+   void on_spinBox_valueChanged(int arg1);
+
+   void on_buildfromsquare_clicked();
 
 private:
     Ui::MainWindow *ui;

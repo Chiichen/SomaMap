@@ -158,9 +158,9 @@ std::vector<std::vector<int>> Cube::GetBack()
     {
         for(int y=0;y<N;y++)
         {
-            for(int x = N;x>=0;x--)
+            for(int x = 0;x<N;x++)
             {
-                vec[x][y]=vec[x][y]|cubevec[x][y][z];
+                vec[x][y]=vec[x][y]|cubevec[N-x-1][y][z];
             }
         }
     }
@@ -176,11 +176,11 @@ std::vector<std::vector<int>> Cube::GetUp()
     }
     for(int y=0;y<N;y++)
     {
-        for(int z=N;z>=0;z--)
+        for(int z=0;z<N;z++)
         {
             for(int x = 0;x<N;x++)
             {
-                vec[x][y]=vec[x][y]|cubevec[x][y][z];
+                vec[x][z]=vec[x][z]|cubevec[x][y][N-z-1];
             }
         }
     }
@@ -200,7 +200,7 @@ std::vector<std::vector<int>> Cube::GetDown()
         {
             for(int x = 0;x<N;x++)
             {
-                vec[x][y]=vec[x][y]|cubevec[x][y][z];
+                vec[x][z]=vec[x][z]|cubevec[x][y][z];
             }
         }
     }
@@ -220,7 +220,7 @@ std::vector<std::vector<int>> Cube::GetLeft()
         {
             for(int y = 0;y<N;y++)
             {
-                vec[x][y]=vec[x][y]|cubevec[x][y][z];
+                vec[z][y]=vec[z][y]|cubevec[x][y][z];
             }
         }
     }
@@ -234,17 +234,29 @@ std::vector<std::vector<int>> Cube::GetRight()
     {
         e.resize(N);
     }
-    for(int y=0;y<N;y++)
+    for(int x=0;x<N;x++)
     {
-        for(int z=N;z>=0;z--)
+        for(int z=0;z<N;z++)
         {
-            for(int x = 0;x<N;x++)
+            for(int y = 0;y<N;y++)
             {
-                vec[x][y]=vec[x][y]|cubevec[x][y][z];
+                vec[z][y]=vec[z][y]|cubevec[x][y][N-z-1];
             }
         }
     }
     return vec;
 }
+
+ std::vector<std::vector<std::vector<int>>> Cube::GetAllView()
+ {
+     std::vector<std::vector<std::vector<int>>> vec;
+     vec.push_back(this->GetDown());
+     vec.push_back(this->GetRight());
+     vec.push_back(this->GetUp());
+     vec.push_back(this->GetLeft());
+     vec.push_back(this->GetFront());
+     vec.push_back(this->GetBack());
+     return vec;
+ }
 
 

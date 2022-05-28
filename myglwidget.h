@@ -1,16 +1,7 @@
 #ifndef QGL_MyGLWidget_H
 #define QGL_MyGLWidget_H
 
-#include <QOpenGLWidget>
-#include <QOpenGLShaderProgram>
-#include <QOpenGLFunctions>
-#include <QOpenGLTexture>
-#include <QKeyEvent>
-#include <QTime>
-
-#include <QPointF>
-#include <cmath>
-#include <QtMath>
+#include"global.h"
 #include"cube.h"
 
 class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions

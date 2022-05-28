@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent)
     square->SetCube(cube);
     ui->myglwidget->SetCube(cube);
     ui->myglwidget->RebuildCube();
+    square->DisplayThreeviews();
 
     //connect(ui->Rebuild,SIGNAL(clicked()),ui->myglwidget,SLOT(RebuildCube()));
 }
@@ -29,7 +30,6 @@ void MainWindow::on_Rebuild_clicked()
     ui->myglwidget->RebuildCube();
     square->SetCube(cube);
     square->SetLength(N);
-    square->SetCubevec(cube.GetFront());
     square->UpdateSquare();
 }
 
@@ -37,12 +37,28 @@ void MainWindow::on_Rebuild_clicked()
 void MainWindow::on_build2_clicked()
 {
     square->SetCube(cube);
-    square->SetUnEditableSquare();
+    square->DisplayExpand();
 }
 
 
-void MainWindow::on_resetrotate_clicked()
+//void MainWindow::on_resetrotate_clicked()
+//{
+//    ui->myglwidget->resetRotate();
+//}
+
+
+
+void MainWindow::on_spinBox_valueChanged(int arg1)
 {
-    ui->myglwidget->resetRotate();
+    square->SetViewchoice(arg1-1);
+    square->DisplayExpand();
+}
+
+
+void MainWindow::on_buildfromsquare_clicked()
+{
+    cube=square->OutputCube();
+    ui->myglwidget->SetCube(cube);
+    ui->myglwidget->RebuildCube();
 }
 

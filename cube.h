@@ -1,21 +1,6 @@
 #ifndef CUBE_H
 #define CUBE_H
-#include<vector>
-#include<random>
-#include<queue>
-#include <QVector3D>
-#include <QMatrix4x4>
-
-
-static int N = 4;
-
-struct Point3{
-    int x=0;
-    int y=0;
-    int z=0;
-    Point3(int a,int b,int c)
-        :x(a),y(b),z(c){}
-};
+#include"global.h"
 
 int random_unint(unsigned int min, unsigned int max);
 
@@ -37,10 +22,11 @@ public:
     std::vector<std::vector<int>> GetDown();
     std::vector<std::vector<int>> GetLeft();
     std::vector<std::vector<int>> GetRight();
-
+    std::vector<std::vector<std::vector<int>>> GetAllView();
+    void SetCubevec(std::vector<std::vector<std::vector<int>>> vec){cubevec = vec;}
 private:
     std::vector<std::vector<std::vector<int>>> cubevec;
-
+    std::vector<Point2> offsetvec;
 };
 
 

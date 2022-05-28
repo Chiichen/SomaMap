@@ -29,16 +29,26 @@
          <widget class="MyGLWidget" name="myglwidget"/>
         </item>
         <item>
-         <widget class="QPushButton" name="resetrotate">
+         <widget class="QSpinBox" name="spinBox">
+          <property name="minimum">
+           <number>1</number>
+          </property>
+          <property name="maximum">
+           <number>11</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="buildfromsquare">
           <property name="text">
-           <string>PushButton</string>
+           <string>生成组合体</string>
           </property>
          </widget>
         </item>
         <item>
          <widget class="QPushButton" name="build2">
           <property name="text">
-           <string>PushButton</string>
+           <string>生成视图</string>
           </property>
          </widget>
         </item>

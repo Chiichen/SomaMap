@@ -42,11 +42,11 @@ void FigureMate::updateMate()
 {
     if(state)
     {
-        this->setPixmap(QPixmap(":/pic/BlueSolidCube.bmp").scaled(50,50,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        this->setPixmap(QPixmap(":/pic/BlueSolidCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
     else if(!state)
     {
-        this->setPixmap(QPixmap(":/pic/BlackCube.bmp").scaled(50,50,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+        this->setPixmap(QPixmap(":/pic/BlackCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
 }
 

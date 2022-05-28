@@ -22,6 +22,7 @@ HEADERS += \
     comscene.h \
     cube.h \
     figuremate.h \
+    global.h \
     mainwindow.h \
     myglwidget.h \
     square.h
