@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/" lang="GLSL">
+        <file>TextureFragmentShader.frag</file>
+        <file>TransformVertexShader.vert</file>
+        <file>uvtemplate.bmp</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>bluecube.bmp</file>
+        <file>pic/BlackCube.bmp</file>
+        <file>pic/BlueSolidCube.bmp</file>
+    </qresource>
+</RCC>

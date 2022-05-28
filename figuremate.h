@@ -1,0 +1,33 @@
+#ifndef FIGUREMATE_H
+#define FIGUREMATE_H
+
+#include <QObject>
+#include<QGraphicsPixmapItem>
+#include <QPixmap>
+#include <QGraphicsSceneMouseEvent>
+#include <QDebug>
+#include <QStyleOptionGraphicsItem>
+
+class FigureMate : public QObject,public QGraphicsPixmapItem
+{
+     Q_OBJECT
+public:
+    FigureMate();
+    void updateMate();
+    void setRowAndCol(int xx,int yy){x=xx;y=yy;}
+    void SetEditable(bool m){Editable = m;updateMate();}
+    void SetState(bool n){state = n;}//true为实心，false为空心
+protected:
+    void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+private:
+    int x;
+    int y;
+    bool Editable = true;
+    bool state = false;
+
+};
+
+
+
+#endif // FIGUREMATE_H
