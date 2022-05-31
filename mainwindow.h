@@ -16,19 +16,10 @@ public:
     ~MainWindow();
 
 private slots:
-   void on_Rebuild_clicked();
 
-   void on_build2_clicked();
-
-   //void on_resetrotate_clicked();
-
-   void on_spinBox_valueChanged(int arg1);
-
-   void on_buildfromsquare_clicked();
 
 private:
     Ui::MainWindow *ui;
-    Square* square;
-    Cube cube;
+
 };
 #endif // MAINWINDOW_H

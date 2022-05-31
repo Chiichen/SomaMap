@@ -70,7 +70,7 @@ void Square::DisplayExpand()
             for(int y=0;y<length;y++)
             {
                 this->Mmates[k][x][y]->SetEditable(false);
-                this->Mmates[k][x][y]->SetState(cube.GetAllView()[k][x][length-y-1]);
+                this->Mmates[k][x][y]->SetState(cube.GetAllView()[k][x][length-y-1]);//从opengl的左下坐标系转换为QPoint的左上坐标系
             }
 
     UpdateSquare();
@@ -86,7 +86,7 @@ void Square::DisplayThreeviews()
             for(int y = 0; y<N; y++)
             {
                 this->three_views[k][x][y] = new FigureMate();
-                this->three_views[k][x][y]->setPos(QPointF(x*squaresize+(k==1?N*squaresize:0),y*squaresize+(k==2?N*squaresize:0)));
+                this->three_views[k][x][y]->setPos(QPointF(x*squaresize+(k==1?N*squaresize:0),N*squaresize-(y*squaresize)+(k==2?N*squaresize:0)));//转换为左下坐标式
                 this->three_views[k][x][y]->setRowAndCol(x,y);
                 this->addItem(this->three_views[k][x][y]);
             }
@@ -150,7 +150,7 @@ Cube Square::OutputCube()
     for(int y=0;y<length;y++)
         for(int z=0;z<length;z++)
             for(int x=0;x<length;x++)
-                vec[x][y][z]+=three_views[2][x][z]->GetState();
+                vec[x][y][z]+=three_views[2][x][length-z-1]->GetState();
     for(int x=0;x<length;x++)
         for(int y=0;y<length;y++)
             for(int z=0;z<length;z++)

@@ -22,51 +22,9 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1,1">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1">
       <item>
-       <layout class="QVBoxLayout" name="verticalLayout">
-        <item>
-         <widget class="MyGLWidget" name="myglwidget"/>
-        </item>
-        <item>
-         <widget class="QSpinBox" name="spinBox">
-          <property name="minimum">
-           <number>1</number>
-          </property>
-          <property name="maximum">
-           <number>11</number>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="buildfromsquare">
-          <property name="text">
-           <string>生成组合体</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="build2">
-          <property name="text">
-           <string>生成视图</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QPushButton" name="Rebuild">
-          <property name="text">
-           <string>重置立方体</string>
-          </property>
-         </widget>
-        </item>
-       </layout>
-      </item>
-      <item>
-       <layout class="QVBoxLayout" name="verticalLayout_3">
-        <item>
-         <widget class="QGraphicsView" name="graphicsView"/>
-        </item>
-       </layout>
+       <widget class="FirstScene" name="widget" native="true"/>
       </item>
      </layout>
     </item>
@@ -86,19 +44,12 @@
  </widget>
  <customwidgets>
   <customwidget>
-   <class>MyGLWidget</class>
-   <extends>QOpenGLWidget</extends>
-   <header location="global">myglwidget.h</header>
-   <slots>
-    <slot>RebuildCube()</slot>
-   </slots>
+   <class>FirstScene</class>
+   <extends>QWidget</extends>
+   <header location="global">firstscene.h</header>
+   <container>1</container>
   </customwidget>
  </customwidgets>
- <tabstops>
-  <tabstop>Rebuild</tabstop>
-  <tabstop>build2</tabstop>
-  <tabstop>graphicsView</tabstop>
- </tabstops>
  <resources/>
  <connections/>
 </ui>

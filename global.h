@@ -6,8 +6,15 @@
 #include <QVector3D>
 #include <QMatrix4x4>
 #include <QGraphicsScene>
+#include <QGraphicsView>
 #include <QMainWindow>
 #include <QObject>
+#include <QWidget>
+#include<QPushButton>
+#include<QHBoxLayout>
+#include<QVBoxLayout>
+#include<QGridLayout>
+#include<QSpinBox>
 #include<QGraphicsPixmapItem>
 #include <QPixmap>
 #include <QGraphicsSceneMouseEvent>

@@ -13,6 +13,7 @@ SOURCES += \
     comscene.cpp \
     cube.cpp \
     figuremate.cpp \
+    firstscene.cpp \
     main.cpp \
     mainwindow.cpp \
     myglwidget.cpp \
@@ -22,6 +23,7 @@ HEADERS += \
     comscene.h \
     cube.h \
     figuremate.h \
+    firstscene.h \
     global.h \
     mainwindow.h \
     myglwidget.h \
