@@ -249,7 +249,7 @@ std::vector<std::vector<int>> Cube::GetRight()
 
  std::vector<std::vector<std::vector<int>>> Cube::GetAllView()
  {
-     std::vector<std::vector<std::vector<int>>> vec;
+std::vector<std::vector<std::vector<int>>> vec;
      vec.push_back(this->GetDown());
      vec.push_back(this->GetRight());
      vec.push_back(this->GetUp());
@@ -258,5 +258,177 @@ std::vector<std::vector<int>> Cube::GetRight()
      vec.push_back(this->GetBack());
      return vec;
  }
+ std::vector<std::vector<std::vector<int>>> Cube::GetExpandView(int k)
+ {
+     std::vector<std::vector<std::vector<int>>> ansvec1=this->GetAllView();
 
+     switch (k)
+     {
+        case 0:
+     {
+        ansvec1[0]=UpsideReverse(ansvec1[0]);
+        ansvec1[1]=UpsideReverse(ansvec1[1]);
+        ansvec1[1]=LeftRotate(ansvec1[1]);
+        ansvec1[2]=LeftsideReverse(ansvec1[2]);
+        ansvec1[3]=UpsideReverse(ansvec1[3]);
+        ansvec1[3]=RightRotate(ansvec1[3]);
+        ansvec1[4]=UpsideReverse(ansvec1[4]);
+        ansvec1[5]=LeftsideReverse(ansvec1[5]);
+
+
+        return ansvec1;
+     }
+        case 1:
+     {
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 2:
+     {
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 3:
+     {
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 4:
+     {
+         ansvec1[5]=RightRotate(ansvec1[5]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 5:
+     {
+         ansvec1[5]=RightRotate(ansvec1[5]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 6:
+     {
+         ansvec1[3]=LeftRotate(ansvec1[3]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 7:
+     {
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[3]=LeftRotate(ansvec1[3]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 8:
+     {
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[3]=LeftRotate(ansvec1[3]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 9:
+     {
+
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=LeftsideReverse(ansvec1[3]);
+         ansvec1[4]=LeftsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     case 10:
+     {
+         ansvec1[3]=LeftRotate(ansvec1[3]);
+         ansvec1[4]=RightRotate(ansvec1[4]);
+         ansvec1[2]=LeftRotate(ansvec1[2]);
+
+         ansvec1[0]=UpsideReverse(ansvec1[0]);
+         ansvec1[1]=UpsideReverse(ansvec1[1]);
+         ansvec1[1]=LeftRotate(ansvec1[1]);
+         ansvec1[2]=LeftsideReverse(ansvec1[2]);
+         ansvec1[3]=UpsideReverse(ansvec1[3]);
+         ansvec1[3]=RightRotate(ansvec1[3]);
+         ansvec1[4]=UpsideReverse(ansvec1[4]);
+         ansvec1[5]=LeftsideReverse(ansvec1[5]);
+         return ansvec1;
+     }
+     default:
+         return ansvec1;
+     }
+ }
 

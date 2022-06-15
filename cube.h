@@ -23,6 +23,7 @@ public:
     std::vector<std::vector<int>> GetLeft();
     std::vector<std::vector<int>> GetRight();
     std::vector<std::vector<std::vector<int>>> GetAllView();
+    std::vector<std::vector<std::vector<int>>> GetExpandView(int k);
     void SetCubevec(std::vector<std::vector<std::vector<int>>> vec){cubevec = vec;}
 private:
     std::vector<std::vector<std::vector<int>>> cubevec;

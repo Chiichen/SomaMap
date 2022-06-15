@@ -23,7 +23,7 @@ private:
     std::vector<std::vector<int>> Cubevec;
     int length=0;
     bool state = true;
-    int viewchoice = 2;
+    int viewchoice = 0;
     Cube cube;
     std::vector<std::vector<Point2>> offset;
     std::vector<std::vector<std::vector<FigureMate*>>> Mmates;//六向视图

@@ -25,8 +25,6 @@ private:
     QPushButton* DisplayExpand;
     QPushButton* BuildFromView;
     QGraphicsView* graphicview;
-
-
 public slots:
 
 private slots:
@@ -35,6 +33,7 @@ private slots:
     void displayThreeviews();
     void buildFromThreeview();
     void displayExpand();
+    void setViewchoice(int i);
 
 signals:
 

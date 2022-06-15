@@ -13,28 +13,33 @@ FirstScene::FirstScene(QWidget *parent)
       DisplayThreeviews(new QPushButton("显示交互三视图")),
       DisplayExpand(new QPushButton("显示展开图")),
       BuildFromView(new QPushButton("从三视图生成立方体")),
-      graphicview(new QGraphicsView())
+      graphicview(new QGraphicsView()),
+      SetViewchoice(new QSpinBox())
 {
     mainlayout->addLayout(leftlayout);
     mainlayout->addLayout(rightlayout);
     mainlayout->setStretchFactor(leftlayout,1);
     mainlayout->setStretchFactor(rightlayout,1);
     leftlayout->addWidget(myglwidget,0,0,8,8);
-
     leftlayout->addWidget(RebuildCube,8,0,4,4);
     leftlayout->addWidget(ResetRot,8,3,4,4);
     leftlayout->addWidget(DisplayThreeviews,12,0,4,4);
     leftlayout->addWidget(DisplayExpand,12,3,4,4);
     leftlayout->addWidget(BuildFromView,16,0,4,8);
+    leftlayout->addWidget(SetViewchoice,17,0);
     square->SetCube(*cube);
     myglwidget->SetCube(*cube);
+    myglwidget->RebuildCube();
     graphicview->setScene(square);
     rightlayout->addWidget(graphicview);
+    SetViewchoice->setMaximum(11);
+    SetViewchoice->setMinimum(1);
     connect(RebuildCube,&QPushButton::clicked,this,&FirstScene::rebuildcube);
     connect(ResetRot,&QPushButton::clicked,this,&FirstScene::resetRotate);
     connect(DisplayThreeviews,&QPushButton::clicked,this,&FirstScene::displayThreeviews);
     connect(DisplayExpand,&QPushButton::clicked,this,&FirstScene::displayExpand);
     connect(BuildFromView,&QPushButton::clicked,this,&FirstScene::buildFromThreeview);
+    connect(SetViewchoice,&QSpinBox::valueChanged,this,&FirstScene::setViewchoice);
     square->DisplayExpand();
 }
 
@@ -68,6 +73,12 @@ void  FirstScene::buildFromThreeview()
 
 void  FirstScene::displayExpand()
 {
+    square->DisplayExpand();
+}
+
+void FirstScene::setViewchoice(int i)
+{
+    square->SetViewchoice(i-1);
     square->DisplayExpand();
 }
 

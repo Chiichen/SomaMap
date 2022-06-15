@@ -22,11 +22,10 @@
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout" stretch="1">
-      <item>
-       <widget class="FirstScene" name="widget" native="true"/>
-      </item>
-     </layout>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <widget class="QWidget" name="page"/>
+      <widget class="QWidget" name="page_2"/>
+     </widget>
     </item>
    </layout>
   </widget>
@@ -42,14 +41,6 @@
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <customwidgets>
-  <customwidget>
-   <class>FirstScene</class>
-   <extends>QWidget</extends>
-   <header location="global">firstscene.h</header>
-   <container>1</container>
-  </customwidget>
- </customwidgets>
  <resources/>
  <connections/>
 </ui>

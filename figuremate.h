@@ -18,7 +18,7 @@ private:
     int x;
     int y;
     bool Editable = true;
-    bool state = false;
+    int state = 0;
 };
 
 

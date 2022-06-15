@@ -227,9 +227,9 @@ void MyGLWidget::timerEvent(QTimerEvent*)
 
 void MyGLWidget::resizeGL(int w, int h)
 {
-  mWidth = w;
   mHeight = h;
-  glViewport(0, 0, (GLsizei) w, (GLsizei) h);
+  mWidth = h*16/9;
+  glViewport(0, 0, (GLsizei) mWidth, (GLsizei) h);
 }
 
 void MyGLWidget::keyPressEvent(QKeyEvent *e)
