@@ -28,6 +28,7 @@
 #include <QTime>
 #include <QPointF>
 #include <cmath>
+#include<QTimer>
 #include<QFrame>
 #include <QtMath>
 
@@ -250,7 +251,7 @@ static std::vector<std::vector<Point2>> offsets (
 
 //        }
 //        );
-static void globalreset()
+static void globalupdate()
 {
     offsets=
     {
