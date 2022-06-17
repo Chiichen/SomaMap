@@ -95,20 +95,24 @@ MyGLWidget::MyGLWidget( QWidget *parent ) : QOpenGLWidget(parent)
 MyGLWidget::~MyGLWidget()
 {
   // Cleanup VBO and shader
-  makeCurrent();
-  glDeleteBuffers(1, &vertexbuffer);
-  glDeleteBuffers(1, &uvbuffer);
-  glDeleteProgram(programID);
-  delete mTexture;
+  if(built)
+  {
+      makeCurrent();
+      glDeleteBuffers(1, &vertexbuffer);
+      glDeleteBuffers(1, &uvbuffer);
+      glDeleteProgram(programID);
+      delete mTexture;
+  }
+
 }
 
 void MyGLWidget::initializeGL()
 {
   // initialize OpenGL
   initializeOpenGLFunctions();
-
+  built=true;
   // Dark blue background
-  glClearColor(0.0f, 0.0f, 0.3f, 0.0f);
+  glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
   // Enable depth test
   glEnable(GL_DEPTH_TEST);

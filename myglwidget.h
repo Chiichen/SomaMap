@@ -55,7 +55,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
 
     bool rotate;
     bool useArcBall;
-
+    bool built = false;//用于标记是否运行过InitializeGL来确定是否要在析构函数中析构uv数组等
     Cube cube;
 };
 

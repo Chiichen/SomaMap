@@ -20,7 +20,8 @@ SOURCES += \
     mainwindow.cpp \
     menuscene.cpp \
     myglwidget.cpp \
-    square.cpp
+    square.cpp \
+    viewscene.cpp
 
 HEADERS += \
     cube.h \
@@ -32,10 +33,14 @@ HEADERS += \
     mainwindow.h \
     menuscene.h \
     myglwidget.h \
-    square.h
+    square.h \
+    viewscene.h
 
 FORMS += \
-    mainwindow.ui
+    gamescene.ui \
+    mainwindow.ui \
+    menuscene.ui \
+    viewscene.ui
 
 TRANSLATIONS += \
     SomaMap_zh_CN.ts

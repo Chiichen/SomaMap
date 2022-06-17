@@ -32,7 +32,7 @@
 #include <QtMath>
 
 static int N = 4;
-static int squaresize = 50;
+static int squaresize = 40;
 
 struct Point3{
     int x=0;
@@ -63,468 +63,288 @@ static std::vector<std::vector<Point2>> offsets (
         {
             //1
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(0,N*squaresize+squaresize/5),
-           Point2(0,-N*squaresize-squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(0,N*squaresize),
+           Point2(0,-N*squaresize)
            },
             //2
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(1*N*squaresize+squaresize*1/5,N*squaresize+squaresize/5),
-           Point2(0,-N*squaresize-squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(1*N*squaresize,N*squaresize),
+           Point2(0,-N*squaresize)
            },
             //3
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-           Point2(0,-N*squaresize-squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(2*N*squaresize,N*squaresize),
+           Point2(0,-N*squaresize)
            },
             //4
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-           Point2(0,-N*squaresize-squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(3*N*squaresize,N*squaresize),
+           Point2(0,-N*squaresize)
            },
             //5
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(2*N*squaresize,N*squaresize),
+           Point2(1*N*squaresize,-N*squaresize)
            },
             //6
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(1*N*squaresize+squaresize*1/5,N*squaresize+squaresize/5),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(1*N*squaresize,N*squaresize),
+           Point2(1*N*squaresize,-N*squaresize)
            },
             //7
-           {Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,0),
-           Point2(0,-N*squaresize-squaresize/5),
-           Point2(1*N*squaresize+squaresize*1/5,+N*squaresize+squaresize/5),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+           {Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,0),
+           Point2(0,-N*squaresize),
+           Point2(1*N*squaresize,+N*squaresize),
+           Point2(1*N*squaresize,-N*squaresize)
 
            },
             //8
-            {Point2(N*squaresize+squaresize/5,0),
-            Point2(2*N*squaresize+squaresize*2/5,0),
-            Point2(3*N*squaresize+squaresize*3/5,0),
-            Point2(0,-N*squaresize-squaresize/5),
-            Point2(2*N*squaresize+squaresize*2/5,+N*squaresize+squaresize/5),
-            Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+            {Point2(N*squaresize,0),
+            Point2(2*N*squaresize,0),
+            Point2(3*N*squaresize,0),
+            Point2(0,-N*squaresize),
+            Point2(2*N*squaresize,+N*squaresize),
+            Point2(1*N*squaresize,-N*squaresize)
             },
             //9
-            {Point2(N*squaresize+squaresize/5,0),
-            Point2(2*N*squaresize+squaresize*2/5,0),
-            Point2(3*N*squaresize+squaresize*3/5,0),
-            Point2(0,-N*squaresize-squaresize/5),
-            Point2(3*N*squaresize+squaresize*3/5,+N*squaresize+squaresize/5),
-            Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+            {Point2(N*squaresize,0),
+            Point2(2*N*squaresize,0),
+            Point2(3*N*squaresize,0),
+            Point2(0,-N*squaresize),
+            Point2(3*N*squaresize,+N*squaresize),
+            Point2(1*N*squaresize,-N*squaresize)
 
             },
             //10
            {Point2(0, 0),
-           Point2(N*squaresize+squaresize/5,0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-           Point2(4*N*squaresize+squaresize*4/5,N*squaresize+squaresize/5)
+           Point2(N*squaresize,0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,N*squaresize),
+           Point2(2*N*squaresize,N*squaresize),
+           Point2(4*N*squaresize,N*squaresize)
            },
             //11
-           {Point2(N*squaresize+squaresize/5, 0),
-           Point2(2*N*squaresize+squaresize*2/5,0),
-           Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-           Point2(0,-N*squaresize-squaresize/5),
-           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+           {Point2(N*squaresize, 0),
+           Point2(2*N*squaresize,0),
+           Point2(3*N*squaresize,N*squaresize),
+           Point2(0,-N*squaresize),
+           Point2(2*N*squaresize,N*squaresize),
+           Point2(1*N*squaresize,-N*squaresize)
            },
 
         }
         );
-static std::vector<std::vector<Point2>> offsets2 (
-        {
-            //1
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,N*squaresize ),
-           Point2(3*N*squaresize  ,-N*squaresize  )
-           },
-            //2
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,N*squaresize ),
-           Point2(2*N*squaresize  ,-N*squaresize  )
-           },
-            //3
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,N*squaresize ),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
-           },
-            //4
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,N*squaresize ),
-           Point2(0,-N*squaresize  )
-           },
-            //5
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(2*N*squaresize  ,N*squaresize ),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
-           },
-            //6
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(1*N*squaresize+squaresize*1/5,N*squaresize ),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
-           },
-            //7
-           {Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,0),
-           Point2(0,-N*squaresize  ),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  ),
-           Point2(1*N*squaresize+squaresize*1/5,+N*squaresize )
-           },
-            //8
-            {Point2(N*squaresize ,0),
-            Point2(2*N*squaresize  ,0),
-            Point2(3*N*squaresize  ,0),
-            Point2(0,-N*squaresize  ),
-            Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  ),
-            Point2(2*N*squaresize  ,+N*squaresize )
-            },
-            //9
-            {Point2(N*squaresize ,0),
-            Point2(2*N*squaresize  ,0),
-            Point2(3*N*squaresize  ,0),
-            Point2(0,-N*squaresize  ),
-            Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  ),
-            Point2(3*N*squaresize  ,+N*squaresize )
-            },
-            //10
-           {Point2(0, 0),
-           Point2(N*squaresize ,0),
-           Point2(2*N*squaresize  ,0),
-           Point2(2*N*squaresize  ,N*squaresize ),
-           Point2(3*N*squaresize  ,N*squaresize ),
-           Point2(4*N*squaresize  ,N*squaresize )
-           },
-            //11
-           {Point2(N*squaresize , 0),
-           Point2(2*N*squaresize  ,0),
-           Point2(3*N*squaresize  ,N*squaresize ),
-           Point2(0,-N*squaresize  ),
-           Point2(2*N*squaresize  ,N*squaresize ),
-           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
-           }
-
-        }
-        );
-//static std::vector<std::vector<ViewPoint>> viewoffsets (
+//带空offsets
+//static std::vector<std::vector<Point2>> offsets (
 //        {
 //            //1
-//           {ViewPoint(0, 0,0,0,1,1),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,-N*squaresize-squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(0,N*squaresize+squaresize/5),
+//           Point2(0,-N*squaresize-squaresize/5)
 //           },
 //            //2
-//           {ViewPoint(0, 0),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,-N*squaresize-squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(1*N*squaresize+squaresize*1/5,N*squaresize+squaresize/5),
+//           Point2(0,-N*squaresize-squaresize/5)
 //           },
 //            //3
-//           {ViewPoint(0, 0),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
+//           Point2(0,-N*squaresize-squaresize/5)
 //           },
 //            //4
-//           {ViewPoint(0, 0),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-//           ViewPoint(0,-N*squaresize-squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
+//           Point2(0,-N*squaresize-squaresize/5)
 //           },
 //            //5
-//           {ViewPoint(0, 0),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
+//           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
 //           },
 //            //6
-//           {ViewPoint(0, 0),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,N*squaresize+squaresize/5),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(1*N*squaresize+squaresize*1/5,N*squaresize+squaresize/5),
+//           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
 //           },
 //            //7
-//           {ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//           ViewPoint(0,-N*squaresize-squaresize/5),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,+N*squaresize+squaresize/5)
+//           {Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,0),
+//           Point2(0,-N*squaresize-squaresize/5),
+//           Point2(1*N*squaresize+squaresize*1/5,+N*squaresize+squaresize/5),
+//           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+
 //           },
 //            //8
-//            {ViewPoint(N*squaresize+squaresize/5,0),
-//            ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//            ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//            ViewPoint(0,-N*squaresize-squaresize/5),
-//            ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5),
-//            ViewPoint(2*N*squaresize+squaresize*2/5,+N*squaresize+squaresize/5)
+//            {Point2(N*squaresize+squaresize/5,0),
+//            Point2(2*N*squaresize+squaresize*2/5,0),
+//            Point2(3*N*squaresize+squaresize*3/5,0),
+//            Point2(0,-N*squaresize-squaresize/5),
+//            Point2(2*N*squaresize+squaresize*2/5,+N*squaresize+squaresize/5),
+//            Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
 //            },
 //            //9
-//            {ViewPoint(N*squaresize+squaresize/5,0),
-//            ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//            ViewPoint(3*N*squaresize+squaresize*3/5,0),
-//            ViewPoint(0,-N*squaresize-squaresize/5),
-//            ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5),
-//            ViewPoint(3*N*squaresize+squaresize*3/5,+N*squaresize+squaresize/5)
+//            {Point2(N*squaresize+squaresize/5,0),
+//            Point2(2*N*squaresize+squaresize*2/5,0),
+//            Point2(3*N*squaresize+squaresize*3/5,0),
+//            Point2(0,-N*squaresize-squaresize/5),
+//            Point2(3*N*squaresize+squaresize*3/5,+N*squaresize+squaresize/5),
+//            Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+
 //            },
 //            //10
-//           {ViewPoint(0, 0),
-//           ViewPoint(N*squaresize+squaresize/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-//           ViewPoint(4*N*squaresize+squaresize*4/5,N*squaresize+squaresize/5)
+//           {Point2(0, 0),
+//           Point2(N*squaresize+squaresize/5,0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
+//           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
+//           Point2(4*N*squaresize+squaresize*4/5,N*squaresize+squaresize/5)
 //           },
 //            //11
-//           {ViewPoint(N*squaresize+squaresize/5, 0),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,0),
-//           ViewPoint(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-//           ViewPoint(0,-N*squaresize-squaresize/5),
-//           ViewPoint(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-//           ViewPoint(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
+//           {Point2(N*squaresize+squaresize/5, 0),
+//           Point2(2*N*squaresize+squaresize*2/5,0),
+//           Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
+//           Point2(0,-N*squaresize-squaresize/5),
+//           Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
+//           Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
 //           },
 
 //        }
 //        );
-
 static void globalreset()
 {
     offsets=
     {
         //1
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-       Point2(3*N*squaresize+squaresize*3/5,-N*squaresize-squaresize/5)
-       },
-        //2
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-       Point2(2*N*squaresize+squaresize*2/5,-N*squaresize-squaresize/5)
-       },
-        //3
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
-       },
-        //4
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-       Point2(0,-N*squaresize-squaresize/5)
-       },
-        //5
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
-       },
-        //6
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(1*N*squaresize+squaresize*1/5,N*squaresize+squaresize/5),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
-       },
-        //7
-       {Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,0),
-       Point2(0,-N*squaresize-squaresize/5),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5),
-       Point2(1*N*squaresize+squaresize*1/5,+N*squaresize+squaresize/5)
-       },
-        //8
-        {Point2(N*squaresize+squaresize/5,0),
-        Point2(2*N*squaresize+squaresize*2/5,0),
-        Point2(3*N*squaresize+squaresize*3/5,0),
-        Point2(0,-N*squaresize-squaresize/5),
-        Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5),
-        Point2(2*N*squaresize+squaresize*2/5,+N*squaresize+squaresize/5)
-        },
-        //9
-        {Point2(N*squaresize+squaresize/5,0),
-        Point2(2*N*squaresize+squaresize*2/5,0),
-        Point2(3*N*squaresize+squaresize*3/5,0),
-        Point2(0,-N*squaresize-squaresize/5),
-        Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5),
-        Point2(3*N*squaresize+squaresize*3/5,+N*squaresize+squaresize/5)
-        },
-        //10
-       {Point2(0, 0),
-       Point2(N*squaresize+squaresize/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-       Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-       Point2(4*N*squaresize+squaresize*4/5,N*squaresize+squaresize/5)
-       },
-        //11
-       {Point2(N*squaresize+squaresize/5, 0),
-       Point2(2*N*squaresize+squaresize*2/5,0),
-       Point2(3*N*squaresize+squaresize*3/5,N*squaresize+squaresize/5),
-       Point2(0,-N*squaresize-squaresize/5),
-       Point2(2*N*squaresize+squaresize*2/5,N*squaresize+squaresize/5),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize-squaresize/5)
-       },
-
-    };
-    offsets2=
-    {
         //1
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,N*squaresize ),
-       Point2(3*N*squaresize  ,-N*squaresize  )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(0,N*squaresize),
+       Point2(0,-N*squaresize)
        },
         //2
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,N*squaresize ),
-       Point2(2*N*squaresize  ,-N*squaresize  )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(1*N*squaresize,N*squaresize),
+       Point2(0,-N*squaresize)
        },
         //3
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,N*squaresize ),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(2*N*squaresize,N*squaresize),
+       Point2(0,-N*squaresize)
        },
         //4
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,N*squaresize ),
-       Point2(0,-N*squaresize  )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(3*N*squaresize,N*squaresize),
+       Point2(0,-N*squaresize)
        },
         //5
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(2*N*squaresize  ,N*squaresize ),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(2*N*squaresize,N*squaresize),
+       Point2(1*N*squaresize,-N*squaresize)
        },
         //6
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(1*N*squaresize+squaresize*1/5,N*squaresize ),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(1*N*squaresize,N*squaresize),
+       Point2(1*N*squaresize,-N*squaresize)
        },
         //7
-       {Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,0),
-       Point2(0,-N*squaresize  ),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  ),
-       Point2(1*N*squaresize+squaresize*1/5,+N*squaresize )
+       {Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,0),
+       Point2(0,-N*squaresize),
+       Point2(1*N*squaresize,+N*squaresize),
+       Point2(1*N*squaresize,-N*squaresize)
+
        },
         //8
-        {Point2(N*squaresize ,0),
-        Point2(2*N*squaresize  ,0),
-        Point2(3*N*squaresize  ,0),
-        Point2(0,-N*squaresize  ),
-        Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  ),
-        Point2(2*N*squaresize  ,+N*squaresize )
+        {Point2(N*squaresize,0),
+        Point2(2*N*squaresize,0),
+        Point2(3*N*squaresize,0),
+        Point2(0,-N*squaresize),
+        Point2(2*N*squaresize,+N*squaresize),
+        Point2(1*N*squaresize,-N*squaresize)
         },
         //9
-        {Point2(N*squaresize ,0),
-        Point2(2*N*squaresize  ,0),
-        Point2(3*N*squaresize  ,0),
-        Point2(0,-N*squaresize  ),
-        Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  ),
-        Point2(3*N*squaresize  ,+N*squaresize )
+        {Point2(N*squaresize,0),
+        Point2(2*N*squaresize,0),
+        Point2(3*N*squaresize,0),
+        Point2(0,-N*squaresize),
+        Point2(3*N*squaresize,+N*squaresize),
+        Point2(1*N*squaresize,-N*squaresize)
+
         },
         //10
        {Point2(0, 0),
-       Point2(N*squaresize ,0),
-       Point2(2*N*squaresize  ,0),
-       Point2(2*N*squaresize  ,N*squaresize ),
-       Point2(3*N*squaresize  ,N*squaresize ),
-       Point2(4*N*squaresize  ,N*squaresize )
+       Point2(N*squaresize,0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,N*squaresize),
+       Point2(2*N*squaresize,N*squaresize),
+       Point2(4*N*squaresize,N*squaresize)
        },
         //11
-       {Point2(N*squaresize , 0),
-       Point2(2*N*squaresize  ,0),
-       Point2(3*N*squaresize  ,N*squaresize ),
-       Point2(0,-N*squaresize  ),
-       Point2(2*N*squaresize  ,N*squaresize ),
-       Point2(1*N*squaresize+squaresize*1/5,-N*squaresize  )
-       }
+       {Point2(N*squaresize, 0),
+       Point2(2*N*squaresize,0),
+       Point2(3*N*squaresize,N*squaresize),
+       Point2(0,-N*squaresize),
+       Point2(2*N*squaresize,N*squaresize),
+       Point2(1*N*squaresize,-N*squaresize)
+       },
 
     };
 

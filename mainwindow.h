@@ -2,7 +2,8 @@
 #define MAINWINDOW_H
 #include"global.h"
 #include"menuscene.h"
-#include"firstscene.h"
+#include"viewscene.h"
+#include"gamescene.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -17,13 +18,13 @@ public:
 
 private slots:
     void start1();
-
+    void start2();
+    void returnmenu();
 private:
     Ui::MainWindow *ui;
     QHBoxLayout* mainlayout;
     MenuScene* menuscene;
-    FirstScene* firstscene;
-
-
+    ViewScene* viewscene;
+    GameScene* gamescene;
 };
 #endif // MAINWINDOW_H

@@ -1,18 +1,26 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
-#include"global.h"
-#include"cube.h"
-#include"figuremate.h"
+
+#include <QWidget>
+
+namespace Ui {
+class GameScene;
+}
 
 class GameScene : public QWidget
 {
     Q_OBJECT
+
 public:
     explicit GameScene(QWidget *parent = nullptr);
-private:
-
+    ~GameScene();
 signals:
+    void returnmenu();
+private slots:
+    void on_commandLinkButton_clicked();
 
+private:
+    Ui::GameScene *ui;
 };
 
 #endif // GAMESCENE_H

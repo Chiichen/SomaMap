@@ -1,23 +1,26 @@
 #include "menuscene.h"
+#include "ui_menuscene.h"
 
-MenuScene::MenuScene(QWidget *parent)
-    : QWidget{parent},
-      Startmode1(new QPushButton),
-      Startmode2(new QPushButton),
-      mainlayout(new QVBoxLayout(this))
+MenuScene::MenuScene(QWidget *parent) :
+    QWidget(parent),
+    ui(new Ui::MenuScene)
 {
-    mainlayout->addWidget(Startmode1);
-    mainlayout->addWidget(Startmode2);
-    Startmode1->setText("开始游戏");
-    connect(Startmode1,&QPushButton::clicked,this,&MenuScene::start1clicked);
-    connect(Startmode2,&QPushButton::clicked,this,&MenuScene::start2clicked);
+    ui->setupUi(this);
+}
 
-}
-void MenuScene::start1clicked()
+MenuScene::~MenuScene()
 {
-    emit start1();
+    delete ui;
 }
-void MenuScene::start2clicked()
+
+void MenuScene::on_StartMode2_clicked()
 {
     emit start2();
 }
+
+
+void MenuScene::on_StartMode1_clicked()
+{
+    emit start1();
+}
+
