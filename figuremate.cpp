@@ -53,5 +53,9 @@ void FigureMate::updateMate()
     {
         this->setPixmap(QPixmap(":/pic/BlackCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
+    else if(state==4)
+    {
+        this->setPixmap(QPixmap(":/pic/GreenSolidCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    }
 }
 

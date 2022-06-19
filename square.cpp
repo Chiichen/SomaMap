@@ -59,7 +59,7 @@ void Square::DisplayExpand()
             for(int y = 0; y<N; y++)
             {
                 this->Mmates[k][x][y] = new FigureMate();
-                this->Mmates[k][x][y]->setPos(QPointF(x*squaresize+offset[viewchoice][k].x,y*squaresize+offset[viewchoice][k].y));
+                this->Mmates[k][x][y]->setPos(QPointF(x*squaresize+offset[viewchoice][k].x*N*squaresize,y*squaresize+offset[viewchoice][k].y*N*squaresize));
                 this->Mmates[k][x][y]->setRowAndCol(x,y);
                 this->addItem(this->Mmates[k][x][y]);
             }

@@ -40,7 +40,8 @@ GrandSquare::GrandSquare(QObject *parent)
     : QGraphicsScene{parent},
       width(10),
       height(10),
-      count(0)
+      count(0),
+      cubenum(6)
 {
     Mmates.resize(width);
     for(auto&e:Mmates)
@@ -54,6 +55,10 @@ GrandSquare::GrandSquare(QObject *parent)
     }
     StatesofMmates.resize(width);
     for(auto &e:StatesofMmates) e.resize(height);
+    for(int k=0;k<cubenum;k++)
+    {
+        cubelist.push_back(new Cube);
+    }
     Initialize();
 }
 
@@ -77,6 +82,30 @@ void GrandSquare::Initialize()
                     this->addItem(this->Mmates[x][y][xx][yy]);
                 }
         }
+    int curnum=0;
+    for(int x=0;x<width/5;x++)
+    {
+        for(int y=0;y<height/3;y++)
+        {
+            if(curnum<cubenum&&random_unint(0,1000)<cubenum*1000/(width*height/15))
+            {
+                int k = random_unint(0,11);
+                auto tempvec=cubelist[curnum]->GetExpandView(k);
+                for(int i=0;i<6;i++)
+                {
+                    int xx=x*5+offsets[k][i].x;
+                    int yy=y*3+1+offsets[k][i].y;
+                    for(int k=0;k<N;k++)
+                        for(int j=0;j<N;j++)
+                        {
+                            Mmates[xx][yy][k][j]->SetState(tempvec[i][k][j]*4);
+                        }
+
+                }
+
+            }
+        }
+    }
 }
 
 

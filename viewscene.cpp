@@ -9,7 +9,6 @@ ViewScene::ViewScene(QWidget *parent) :
     myglwidget(new MyGLWidget)
 {
     squaresize=40;
-    globalupdate();
     ui->setupUi(this);
     glwidgetlayout=new QHBoxLayout(ui->frame->widget());
     ui->graphicview->setScene(square);
