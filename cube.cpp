@@ -1,13 +1,7 @@
 #include "cube.h"
 
-int random_unint(unsigned int min, unsigned int max)
-{
-    std::random_device rd;
-    static std::default_random_engine e(rd());
-    std::uniform_int_distribution<int> u(min, max);
-    return u(e);
-}
-void bfscube(std::vector<std::vector<std::vector<int>>>& cubevec, int n, int k )
+
+void bfscube(QVector<QVector<QVector<int>>>& cubevec, int n, int k )
 {
     int move_x[]={0,0,0,0,1,-1,0};
     int move_y[]={1,-1,0,0,0,0,0};
@@ -91,9 +85,9 @@ void Cube::rebuild(int n)
     return;
 }
 
-std::vector<QVector3D> Cube::GetCubePosition()
+QVector<QVector3D> Cube::GetCubePosition()
 {
-    std::vector<QVector3D> vec;
+    QVector<QVector3D> vec;
     for(int x=0;x<N;x++)
             for(int y=0;y<N;y++)
                     for(int z=0;z<N;z++)
@@ -126,9 +120,9 @@ QVector3D Cube::GetCamaraPosition()
     return QVector3D(0,0,4.0f);
 }
 
-std::vector<std::vector<int>> Cube::GetFront()
+QVector<QVector<int>> Cube::GetFront()
 {
-    std::vector<std::vector<int>> vec;
+    QVector<QVector<int>> vec;
     vec.resize(N);
     for(auto &e:vec)
     {
@@ -146,9 +140,9 @@ std::vector<std::vector<int>> Cube::GetFront()
     }
     return vec;
 }
-std::vector<std::vector<int>> Cube::GetBack()
+QVector<QVector<int>> Cube::GetBack()
 {
-    std::vector<std::vector<int>> vec;
+    QVector<QVector<int>> vec;
     vec.resize(N);
     for(auto &e:vec)
     {
@@ -166,9 +160,9 @@ std::vector<std::vector<int>> Cube::GetBack()
     }
     return vec;
 }
-std::vector<std::vector<int>> Cube::GetUp()
+QVector<QVector<int>> Cube::GetUp()
 {
-    std::vector<std::vector<int>> vec;
+    QVector<QVector<int>> vec;
     vec.resize(N);
     for(auto &e:vec)
     {
@@ -186,9 +180,9 @@ std::vector<std::vector<int>> Cube::GetUp()
     }
     return vec;
 }
-std::vector<std::vector<int>> Cube::GetDown()
+QVector<QVector<int>> Cube::GetDown()
 {
-    std::vector<std::vector<int>> vec;
+    QVector<QVector<int>> vec;
     vec.resize(N);
     for(auto &e:vec)
     {
@@ -206,9 +200,9 @@ std::vector<std::vector<int>> Cube::GetDown()
     }
     return vec;
 }
-std::vector<std::vector<int>> Cube::GetLeft()
+QVector<QVector<int>> Cube::GetLeft()
 {
-    std::vector<std::vector<int>> vec;
+    QVector<QVector<int>> vec;
     vec.resize(N);
     for(auto &e:vec)
     {
@@ -226,9 +220,9 @@ std::vector<std::vector<int>> Cube::GetLeft()
     }
     return vec;
 }
-std::vector<std::vector<int>> Cube::GetRight()
+QVector<QVector<int>> Cube::GetRight()
 {
-    std::vector<std::vector<int>> vec;
+    QVector<QVector<int>> vec;
     vec.resize(N);
     for(auto &e:vec)
     {
@@ -247,9 +241,9 @@ std::vector<std::vector<int>> Cube::GetRight()
     return vec;
 }
 
- std::vector<std::vector<std::vector<int>>> Cube::GetAllView()
+ QVector<QVector<QVector<int>>> Cube::GetAllView()
  {
-std::vector<std::vector<std::vector<int>>> vec;
+QVector<QVector<QVector<int>>> vec;
      vec.push_back(this->GetDown());
      vec.push_back(this->GetRight());
      vec.push_back(this->GetUp());
@@ -258,9 +252,9 @@ std::vector<std::vector<std::vector<int>>> vec;
      vec.push_back(this->GetBack());
      return vec;
  }
- std::vector<std::vector<std::vector<int>>> Cube::GetExpandView(int k)
+ QVector<QVector<QVector<int>>> Cube::GetExpandView(int k)
  {
-     std::vector<std::vector<std::vector<int>>> ansvec1=this->GetAllView();
+     QVector<QVector<QVector<int>>> ansvec1=this->GetAllView();
 
      switch (k)
      {

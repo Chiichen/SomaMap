@@ -8,5 +8,6 @@
         <file>bluecube.bmp</file>
         <file>pic/BlackCube.bmp</file>
         <file>pic/BlueSolidCube.bmp</file>
+        <file>pic/OringeSolidCube.bmp</file>
     </qresource>
 </RCC>

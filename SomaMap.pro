@@ -14,7 +14,6 @@ SOURCES += \
     figuremate.cpp \
     firstscene.cpp \
     gamescene.cpp \
-    global.cpp \
     grandsquare.cpp \
     keepratiowidget.cpp \
     main.cpp \

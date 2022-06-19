@@ -8,6 +8,8 @@ ViewScene::ViewScene(QWidget *parent) :
     square(new Square),
     myglwidget(new MyGLWidget)
 {
+    squaresize=40;
+    globalupdate();
     ui->setupUi(this);
     glwidgetlayout=new QHBoxLayout(ui->frame->widget());
     ui->graphicview->setScene(square);
@@ -25,6 +27,7 @@ ViewScene::~ViewScene()
 
 void ViewScene::on_BuildFromView_clicked()
 {
+
     cube = new Cube(this->square->OutputCube());
     square->SetCube(*cube);
     myglwidget->SetCube(*cube);

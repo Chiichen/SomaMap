@@ -36,7 +36,7 @@ class MyGLWidget : public QOpenGLWidget, protected QOpenGLFunctions
     QMatrix4x4 mRotate;
     QMatrix4x4 mViewMatrix;
     QMatrix4x4 mProjectionMatrix;
-    std::vector<QVector3D> mModelPosition;
+    QVector<QVector3D> mModelPosition;
 
     QVector3D cameraPos;
     QVector3D mPosition;

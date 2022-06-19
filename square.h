@@ -12,7 +12,7 @@ public:
     ~Square();
     void UpdateSquare();
     void SetLength(int l){length = l;}
-    void SetCubevec(std::vector<std::vector<int>> vec){Cubevec = vec;}
+    void SetCubevec(QVector<QVector<int>> vec){Cubevec = vec;}
     void initialize();
     void SetCube(Cube c){cube = c;}
     void DisplayExpand();
@@ -20,14 +20,14 @@ public:
     void SetViewchoice(int k){viewchoice = k;}
     Cube OutputCube();
 private:
-    std::vector<std::vector<int>> Cubevec;
+    QVector<QVector<int>> Cubevec;
     int length=0;
     bool state = true;
     int viewchoice = 0;
     Cube cube;
-    std::vector<std::vector<Point2>> offset;
-    std::vector<std::vector<std::vector<FigureMate*>>> Mmates;//六向视图
-    std::vector<std::vector<std::vector<FigureMate*>>> three_views;//可操作三视图
+    QVector<QVector<Point2>> offset;
+    QVector<QVector<QVector<FigureMate*>>> Mmates;//六向视图
+    QVector<QVector<QVector<FigureMate*>>> three_views;//可操作三视图
     Cube outputcube;
 
 signals:

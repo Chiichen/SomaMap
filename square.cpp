@@ -103,16 +103,16 @@ void Square::DisplayThreeviews()
 
 Cube Square::OutputCube()
 {
-//    std::vector<std::vector<int>> front;
+//    QVector<QVector<int>> front;
 //    front.resize(length);
 //    for(auto &e:front) e.resize(length);
-//    std::vector<std::vector<int>> left;
+//    QVector<QVector<int>> left;
 //    left.resize(length);
 //    for(auto &e:left) e.resize(length);
-//    std::vector<std::vector<int>> up;
+//    QVector<QVector<int>> up;
 //    up.resize(length);
 //    for(auto &e:up) e.resize(length);
-    std::vector<std::vector<std::vector<int>>> vec;
+    QVector<QVector<QVector<int>>> vec;
     vec.resize(length);
     for(auto &e:vec)
     {

@@ -2,9 +2,8 @@
 #define GAMESCENE_H
 
 #include"global.h"
-#include"square.h"
 #include"cube.h"
-
+#include"grandsquare.h"
 
 namespace Ui {
 class GameScene;
@@ -28,6 +27,7 @@ private:
     Ui::GameScene *ui;
     QTimer* timer1s;
     int remaintime;
+    GrandSquare* grandsquare;
 };
 
 #endif // GAMESCENE_H

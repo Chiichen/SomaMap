@@ -2,9 +2,8 @@
 #define CUBE_H
 #include"global.h"
 
-int random_unint(unsigned int min, unsigned int max);
 
-void bfscube(std::vector<std::vector<std::vector<int>>>& cubevec, int n, int k );
+void bfscube(QVector<QVector<QVector<int>>>& cubevec, int n, int k );
 
 
 class Cube
@@ -14,20 +13,20 @@ public:
     void rebuild();
     void rebuild(int);
 
-    std::vector<QVector3D> GetCubePosition();
+    QVector<QVector3D> GetCubePosition();
     QVector3D GetCamaraPosition();
-    std::vector<std::vector<int>> GetFront();
-    std::vector<std::vector<int>> GetBack();
-    std::vector<std::vector<int>> GetUp();
-    std::vector<std::vector<int>> GetDown();
-    std::vector<std::vector<int>> GetLeft();
-    std::vector<std::vector<int>> GetRight();
-    std::vector<std::vector<std::vector<int>>> GetAllView();
-    std::vector<std::vector<std::vector<int>>> GetExpandView(int k);
-    void SetCubevec(std::vector<std::vector<std::vector<int>>> vec){cubevec = vec;}
+    QVector<QVector<int>> GetFront();
+    QVector<QVector<int>> GetBack();
+    QVector<QVector<int>> GetUp();
+    QVector<QVector<int>> GetDown();
+    QVector<QVector<int>> GetLeft();
+    QVector<QVector<int>> GetRight();
+    QVector<QVector<QVector<int>>> GetAllView();
+    QVector<QVector<QVector<int>>> GetExpandView(int k);
+    void SetCubevec(QVector<QVector<QVector<int>>> vec){cubevec = vec;}
 private:
-    std::vector<std::vector<std::vector<int>>> cubevec;
-    std::vector<Point2> offsetvec;
+    QVector<QVector<QVector<int>>> cubevec;
+    QVector<Point2> offsetvec;
 };
 
 

@@ -60,7 +60,7 @@ struct ViewPoint{
         :point(xx,yy),x_offset(a),y_offset(b),x_dir(c),y_dir(d){}
 };
 
-static std::vector<std::vector<Point2>> offsets (
+static QVector<QVector<Point2>> offsets (
         {
             //1
            {Point2(0, 0),
@@ -156,7 +156,7 @@ static std::vector<std::vector<Point2>> offsets (
         }
         );
 //带空offsets
-//static std::vector<std::vector<Point2>> offsets (
+//static QVector<QVector<Point2>> offsets (
 //        {
 //            //1
 //           {Point2(0, 0),
@@ -351,9 +351,9 @@ static void globalupdate()
 
 }
 
-static std::vector<std::vector<int>>RightRotate(std::vector<std::vector<int>>vec)
+static QVector<QVector<int>>RightRotate(QVector<QVector<int>>vec)
 {
-    std::vector<std::vector<int>>tempvec;
+    QVector<QVector<int>>tempvec;
     tempvec.resize(vec.size());
     for(auto& e:tempvec) e.resize(vec[0].size());
     int k = vec.size();
@@ -367,9 +367,9 @@ static std::vector<std::vector<int>>RightRotate(std::vector<std::vector<int>>vec
     }
     return tempvec;
 }
-static std::vector<std::vector<int>>LeftRotate(std::vector<std::vector<int>>vec)
+static QVector<QVector<int>>LeftRotate(QVector<QVector<int>>vec)
 {
-    std::vector<std::vector<int>>tempvec;
+    QVector<QVector<int>>tempvec;
     tempvec.resize(vec.size());
     for(auto& e:tempvec) e.resize(vec[0].size());
     int k = vec.size();
@@ -385,9 +385,9 @@ static std::vector<std::vector<int>>LeftRotate(std::vector<std::vector<int>>vec)
 }
 
 
-static std::vector<std::vector<int>>UpsideReverse(std::vector<std::vector<int>>vec)
+static QVector<QVector<int>>UpsideReverse(QVector<QVector<int>>vec)
 {
-    std::vector<std::vector<int>>tempvec;
+    QVector<QVector<int>>tempvec;
     tempvec.resize(vec.size());
     for(auto& e:tempvec) e.resize(vec[0].size());
     int k = vec.size();
@@ -404,9 +404,9 @@ static std::vector<std::vector<int>>UpsideReverse(std::vector<std::vector<int>>v
 
 
 
-static std::vector<std::vector<int>>LeftsideReverse(std::vector<std::vector<int>>vec)
+static QVector<QVector<int>>LeftsideReverse(QVector<QVector<int>>vec)
 {
-    std::vector<std::vector<int>>tempvec;
+    QVector<QVector<int>>tempvec;
     tempvec.resize(vec.size());
     for(auto& e:tempvec) e.resize(vec[0].size());
     int k = vec.size();
@@ -419,6 +419,13 @@ static std::vector<std::vector<int>>LeftsideReverse(std::vector<std::vector<int>
         }
     }
     return tempvec;
+}
+static int random_unint(unsigned int min, unsigned int max)
+{
+    std::random_device rd;
+    static std::default_random_engine e(rd());
+    std::uniform_int_distribution<int> u(min, max);
+    return u(e);
 }
 
 #endif // GLOBAL_H

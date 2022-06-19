@@ -27,6 +27,7 @@ widget : 想画到哪个widget上，如果要画在缓存区上，这个参数�
 
 void FigureMate::mousePressEvent(QGraphicsSceneMouseEvent *event)
 {
+    emit clicked(x,y);
     if(Editable)
     {
         if(event->button()==Qt::LeftButton)
@@ -43,6 +44,10 @@ void FigureMate::updateMate()
     if(state==1)
     {
         this->setPixmap(QPixmap(":/pic/BlueSolidCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
+    }
+    else if(state==3)
+    {
+        this->setPixmap(QPixmap(":/pic/OringeSolidCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
     else if(state==0)
     {
