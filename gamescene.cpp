@@ -5,7 +5,7 @@ GameScene::GameScene(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameScene),
     timer1s(new QTimer),
-    remaintime(62)
+    remaintime(10)
 {
     ui->setupUi(this);
     timer1s->start(1000);
@@ -24,11 +24,12 @@ void GameScene::on_commandLinkButton_clicked()
 
 void GameScene::timer1sout()
 {
-    if(remaintime==1) {
+    ui->lcdNumber->display(QString::number((remaintime--)/60)+":"+QString::number(remaintime%60));
+    if(remaintime==0) {
+        timer1s->stop();
         emit timeout();
         return;
     }
-    ui->lcdNumber->display(QString::number((remaintime--)/60)+":"+QString::number(remaintime%60));
 }
 
 

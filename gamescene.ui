@@ -51,7 +51,7 @@
     <widget class="QLCDNumber" name="lcdNumber"/>
    </item>
    <item row="1" column="0">
-    <widget class="QWidget" name="widget" native="true"/>
+    <widget class="QGraphicsView" name="graphicsView"/>
    </item>
   </layout>
  </widget>

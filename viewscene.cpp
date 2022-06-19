@@ -13,6 +13,7 @@ ViewScene::ViewScene(QWidget *parent) :
     ui->graphicview->setScene(square);
     square->SetCube(*cube);
     myglwidget->SetCube(*cube);
+    myglwidget->RebuildCube();
     glwidgetlayout->addWidget(myglwidget);
     square->DisplayExpand();
 }

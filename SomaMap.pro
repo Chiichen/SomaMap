@@ -15,6 +15,7 @@ SOURCES += \
     firstscene.cpp \
     gamescene.cpp \
     global.cpp \
+    grandsquare.cpp \
     keepratiowidget.cpp \
     main.cpp \
     mainwindow.cpp \
@@ -29,6 +30,7 @@ HEADERS += \
     firstscene.h \
     gamescene.h \
     global.h \
+    grandsquare.h \
     keepratiowidget.h \
     mainwindow.h \
     menuscene.h \
