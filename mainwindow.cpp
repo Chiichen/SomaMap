@@ -37,5 +37,16 @@ void MainWindow::start2()
 }
 void MainWindow::returnmenu()
 {
+    delete gamescene;
+    delete viewscene;
+    auto gamescene = new GameScene;
+    auto viewscene = new ViewScene;
+    ui->stackedWidget->addWidget(viewscene);
+    ui->stackedWidget->addWidget(gamescene);
+    ui->stackedWidget->setCurrentWidget(menuscene);
+    connect(gamescene,&GameScene::returnmenu,this,&MainWindow::returnmenu);
+    connect(viewscene,&ViewScene::returnmenu,this,&MainWindow::returnmenu);
+    connect(menuscene,&MenuScene::start1,this,&MainWindow::start1);
+    connect(menuscene,&MenuScene::start2,this,&MainWindow::start2);
     ui->stackedWidget->setCurrentWidget(menuscene);
 }

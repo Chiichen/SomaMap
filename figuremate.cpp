@@ -33,6 +33,7 @@ void FigureMate::mousePressEvent(QGraphicsSceneMouseEvent *event)
         if(event->button()==Qt::LeftButton)
         {
             state = !state;
+            qDebug()<<x<<"\n"<<y;
             updateMate();
         }
 

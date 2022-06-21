@@ -23,6 +23,10 @@ signals:
 private slots:
     void on_commandLinkButton_clicked();
     void timer1sout();
+    void win();
+
+    void on_showans_clicked();
+
 private:
     Ui::GameScene *ui;
     QTimer* timer1s;

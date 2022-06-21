@@ -20,7 +20,7 @@ protected:
 private:
     int x;
     int y;
-    bool Editable = true;
+    bool Editable = false;
     int state = 0;
     int prestate;
 signals:

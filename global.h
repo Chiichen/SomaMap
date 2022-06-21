@@ -17,6 +17,7 @@
 #include<QSpinBox>
 #include<QGraphicsPixmapItem>
 #include <QPixmap>
+#include<QMessageBox>
 #include <QGraphicsSceneMouseEvent>
 #include <QDebug>
 #include <QStyleOptionGraphicsItem>
@@ -31,7 +32,7 @@
 #include<QTimer>
 #include<QFrame>
 #include <QtMath>
-
+#include <memory>
 static int N = 4;
 static int squaresize = 40;
 

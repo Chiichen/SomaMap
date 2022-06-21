@@ -27,6 +27,8 @@ private:
     int cubenum;
 private slots:
     void select(int x,int y);
+signals:
+    void win();
 };
 
 
