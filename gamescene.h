@@ -17,6 +17,8 @@ public:
     explicit GameScene(QWidget *parent = nullptr);
     ~GameScene();
     void settime(int k) {remaintime=k;}
+    void reinitialize();
+    void setdifficulty(int timelimit,int cubenum){remaintime = timelimit;grandsquare->cubenum=cubenum;}
 signals:
     void returnmenu();
     void timeout();
@@ -32,6 +34,7 @@ private:
     QTimer* timer1s;
     int remaintime;
     GrandSquare* grandsquare;
+    GrandSquare* nextgrandsquare;
 };
 
 #endif // GAMESCENE_H

@@ -10,5 +10,6 @@
         <file>pic/BlueSolidCube.bmp</file>
         <file>pic/OringeSolidCube.bmp</file>
         <file>pic/GreenSolidCube.bmp</file>
+        <file>pic/Somamap.png</file>
     </qresource>
 </RCC>

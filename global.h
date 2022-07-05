@@ -27,12 +27,15 @@
 #include <QOpenGLTexture>
 #include <QKeyEvent>
 #include <QTime>
+#include<QThread>
 #include <QPointF>
 #include <cmath>
 #include<QTimer>
 #include<QFrame>
 #include <QtMath>
 #include <memory>
+#include<QFile>
+#include<QFileDialog>
 static int N = 4;
 static int squaresize = 40;
 
@@ -428,5 +431,6 @@ static int random_unint(unsigned int min, unsigned int max)
     std::uniform_int_distribution<int> u(min, max);
     return u(e);
 }
+
 
 #endif // GLOBAL_H

@@ -52,7 +52,7 @@ void ViewScene::on_RebuildCubbe_clicked()
     myglwidget->SetCube(*cube);
     square->SetCube(*cube);
     myglwidget->RebuildCube();
-    square->UpdateSquare();
+    square->DisplayExpand();
 }
 
 
@@ -72,5 +72,56 @@ void ViewScene::on_SetViewchoice_valueChanged(int arg1)
 void ViewScene::on_commandLinkButton_clicked()
 {
     emit returnmenu();
+}
+
+
+void ViewScene::on_savecube_clicked()
+{
+    QString Filename = QFileDialog::getSaveFileName(
+                this,
+                tr("保存文件至"),
+                "",
+                tr("*.txt")
+                );
+    if(Filename.isEmpty())return;
+    else
+    {
+        QFile outfile;
+        outfile.setFileName(Filename);
+        outfile.open(QIODevice::WriteOnly);
+        QDataStream ostream(&outfile);
+        ostream<<cube->getcubevec();
+        outfile.close();
+        QMessageBox::information(NULL,tr("该立方体已经保存至"),Filename);
+    }
+}
+
+
+
+
+void ViewScene::on_readcube_clicked()
+{
+    QString Filename = QFileDialog::getOpenFileName(
+                this,
+                tr("打开存档文件"),
+                "",
+                tr("*.txt"));
+    if(Filename.isEmpty()) return;
+    else
+    {
+        QFile infile;
+        infile.setFileName(Filename);
+        infile.open(QIODevice::ReadOnly);
+        QDataStream istream(&infile);
+        QVector<QVector<QVector<int>>> tempvec;
+        istream>>tempvec;
+        infile.close();
+        cube->SetCubevec(tempvec);
+        myglwidget->SetCube(*cube);
+        square->SetCube(*cube);
+        myglwidget->RebuildCube();
+        square->DisplayExpand();
+
+    }
 }
 

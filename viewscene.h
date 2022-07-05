@@ -17,6 +17,7 @@ class ViewScene : public QWidget
 public:
     explicit ViewScene(QWidget *parent = nullptr);
     ~ViewScene();
+    void reinitialize();
 
 private slots:
     void on_BuildFromView_clicked();
@@ -31,6 +32,10 @@ private slots:
 
     void on_SetViewchoice_valueChanged(int arg1);
     void on_commandLinkButton_clicked();
+
+    void on_savecube_clicked();
+
+    void on_readcube_clicked();
 
 signals:
     void returnmenu();

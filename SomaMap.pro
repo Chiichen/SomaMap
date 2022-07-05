@@ -16,12 +16,14 @@ SOURCES += \
     gamescene.cpp \
     grandsquare.cpp \
     keepratiowidget.cpp \
+    levelscene.cpp \
     main.cpp \
     mainwindow.cpp \
     menuscene.cpp \
     myglwidget.cpp \
     square.cpp \
-    viewscene.cpp
+    viewscene.cpp \
+    workerthread.cpp
 
 HEADERS += \
     cube.h \
@@ -31,14 +33,17 @@ HEADERS += \
     global.h \
     grandsquare.h \
     keepratiowidget.h \
+    levelscene.h \
     mainwindow.h \
     menuscene.h \
     myglwidget.h \
     square.h \
-    viewscene.h
+    viewscene.h \
+    workerthread.h
 
 FORMS += \
     gamescene.ui \
+    levelscene.ui \
     mainwindow.ui \
     menuscene.ui \
     viewscene.ui

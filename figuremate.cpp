@@ -42,6 +42,8 @@ void FigureMate::mousePressEvent(QGraphicsSceneMouseEvent *event)
 
 void FigureMate::updateMate()
 {
+if(this!=nullptr)
+{
     if(state==1)
     {
         this->setPixmap(QPixmap(":/pic/BlueSolidCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
@@ -58,5 +60,6 @@ void FigureMate::updateMate()
     {
         this->setPixmap(QPixmap(":/pic/GreenSolidCube.bmp").scaled(squaresize,squaresize,Qt::IgnoreAspectRatio, Qt::SmoothTransformation));
     }
+}
 }
 

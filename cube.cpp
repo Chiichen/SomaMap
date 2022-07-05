@@ -241,6 +241,9 @@ QVector<QVector<int>> Cube::GetRight()
     return vec;
 }
 
+
+
+
  QVector<QVector<QVector<int>>> Cube::GetAllView()
  {
 QVector<QVector<QVector<int>>> vec;
@@ -318,7 +321,7 @@ QVector<QVector<QVector<int>>> vec;
      }
      case 4:
      {
-         ansvec1[5]=RightRotate(ansvec1[5]);
+         ansvec1[5]=LeftRotate(ansvec1[5]);
          ansvec1[4]=RightRotate(ansvec1[4]);
          ansvec1[4]=RightRotate(ansvec1[4]);
 
@@ -334,7 +337,7 @@ QVector<QVector<QVector<int>>> vec;
      }
      case 5:
      {
-         ansvec1[5]=RightRotate(ansvec1[5]);
+         ansvec1[5]=LeftRotate(ansvec1[5]);
          ansvec1[4]=RightRotate(ansvec1[4]);
 
          ansvec1[0]=UpsideReverse(ansvec1[0]);

@@ -12,7 +12,7 @@ public:
     Cube();
     void rebuild();
     void rebuild(int);
-
+    QVector<QVector<QVector<int>>> getcubevec(){return cubevec;}
     QVector<QVector3D> GetCubePosition();
     QVector3D GetCamaraPosition();
     QVector<QVector<int>> GetFront();
@@ -24,6 +24,7 @@ public:
     QVector<QVector<QVector<int>>> GetAllView();
     QVector<QVector<QVector<int>>> GetExpandView(int k);
     void SetCubevec(QVector<QVector<QVector<int>>> vec){cubevec = vec;}
+    void BuildFromTwo(QVector<QVector<int>>vec1,QVector<QVector<int>>vec2);
 private:
     QVector<QVector<QVector<int>>> cubevec;
     QVector<Point2> offsetvec;

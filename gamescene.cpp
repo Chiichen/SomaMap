@@ -5,8 +5,9 @@ GameScene::GameScene(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::GameScene),
     timer1s(new QTimer),
-    remaintime(10),
-    grandsquare(new GrandSquare)
+    remaintime(100),
+    grandsquare(new GrandSquare),
+    nextgrandsquare(new GrandSquare)
 {
 
     ui->setupUi(this);
@@ -45,12 +46,14 @@ void GameScene::win()
     auto playagainbutton = message.addButton("再来一次",QMessageBox::YesRole);
     auto returnmenubutton = message.addButton("返回主菜单",QMessageBox::NoRole);
     message.exec();
+    timer1s->stop();
     if(message.clickedButton()==playagainbutton)
     {
-        delete grandsquare;
-        auto grandsquare=new GrandSquare;
-        connect(grandsquare,&GrandSquare::win,this,&GameScene::win);
-        ui->graphicsView->setScene(grandsquare);
+
+        reinitialize();
+
+//        *grandsquare=*nextgrandsquare;
+
     }
     else if(message.clickedButton()==returnmenubutton)
     {
@@ -65,5 +68,12 @@ void GameScene::win()
 void GameScene::on_showans_clicked()
 {
 
+}
+
+void GameScene::reinitialize()
+{
+    timer1s->start();
+    remaintime = 100;
+    grandsquare->Initialize();
 }
 

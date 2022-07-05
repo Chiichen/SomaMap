@@ -8,12 +8,14 @@ MainWindow::MainWindow(QWidget *parent)
     mainlayout(new QHBoxLayout(this)),
     menuscene(new MenuScene),
     viewscene(new ViewScene),
-    gamescene(new GameScene)
+    gamescene(new GameScene),
+    levelscene(new LevelScene)
 {
     ui->setupUi(this);
     ui->stackedWidget->addWidget(menuscene);
     ui->stackedWidget->addWidget(viewscene);
     ui->stackedWidget->addWidget(gamescene);
+    ui->stackedWidget->addWidget(levelscene);
     ui->stackedWidget->setCurrentWidget(menuscene);
 
     connect(menuscene,&MenuScene::start1,this,&MainWindow::start1);
@@ -33,20 +35,12 @@ void MainWindow::start1()
 }
 void MainWindow::start2()
 {
-    ui->stackedWidget->setCurrentWidget(gamescene);
+    ui->stackedWidget->setCurrentWidget(levelscene);
 }
 void MainWindow::returnmenu()
 {
-    delete gamescene;
-    delete viewscene;
-    auto gamescene = new GameScene;
-    auto viewscene = new ViewScene;
-    ui->stackedWidget->addWidget(viewscene);
-    ui->stackedWidget->addWidget(gamescene);
+
+
     ui->stackedWidget->setCurrentWidget(menuscene);
-    connect(gamescene,&GameScene::returnmenu,this,&MainWindow::returnmenu);
-    connect(viewscene,&ViewScene::returnmenu,this,&MainWindow::returnmenu);
-    connect(menuscene,&MenuScene::start1,this,&MainWindow::start1);
-    connect(menuscene,&MenuScene::start2,this,&MainWindow::start2);
-    ui->stackedWidget->setCurrentWidget(menuscene);
+    gamescene->reinitialize();
 }

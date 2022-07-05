@@ -11,13 +11,10 @@ class GrandSquare : public QGraphicsScene
     Q_OBJECT
 public:
     explicit GrandSquare(QObject *parent = nullptr);
+    GrandSquare(GrandSquare& g);
     void Updatesquare();
     void Initialize();
 
-
-
-
-private:
     int width;
     int height;
     QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates;
@@ -25,6 +22,10 @@ private:
     QVector<Cube*> cubelist;
     int count;
     int cubenum;
+    void operator =(GrandSquare&g);
+
+private:
+
 private slots:
     void select(int x,int y);
 signals:

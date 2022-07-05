@@ -4,6 +4,7 @@
 #include"menuscene.h"
 #include"viewscene.h"
 #include"gamescene.h"
+#include"levelscene.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -26,5 +27,6 @@ private:
     MenuScene* menuscene;
     ViewScene* viewscene;
     GameScene* gamescene;
+    LevelScene* levelscene;
 };
 #endif // MAINWINDOW_H

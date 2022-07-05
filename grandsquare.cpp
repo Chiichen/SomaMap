@@ -97,7 +97,11 @@ void GrandSquare::Initialize()
     height=10;
     count=0;
     cubenum=6;
+    Mmates.clear();
+    cubelist.clear();
+    StatesofMmates.clear();
     Mmates.resize(width);
+
     for(auto&e:Mmates)
     {
         e.resize(height);
@@ -222,4 +226,26 @@ void GrandSquare::select(int x,int y)
 
     }
 
+}
+GrandSquare::GrandSquare(GrandSquare& g)
+{
+
+    int width=g.width;
+    int height=g.height;
+    QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates=g.Mmates;
+    QVector<QVector<int>>StatesofMmates=g.StatesofMmates;//0表示未被选中干扰项，1表示是展开图的一部分且未被选中，2表示已选中的干扰项，3表示已选中的展开图，4表示已被确定的答案展开图
+    QVector<Cube*> cubelist=g.cubelist;
+    int count=g.count;
+    int cubenum=g.cubenum;
+}
+void GrandSquare::operator=(GrandSquare &g)
+{
+
+    int width=g.width;
+    int height=g.height;
+    QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates=g.Mmates;
+    QVector<QVector<int>>StatesofMmates=g.StatesofMmates;//0表示未被选中干扰项，1表示是展开图的一部分且未被选中，2表示已选中的干扰项，3表示已选中的展开图，4表示已被确定的答案展开图
+    QVector<Cube*> cubelist=g.cubelist;
+    int count=g.count;
+    int cubenum=g.cubenum;
 }

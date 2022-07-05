@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1207</width>
-    <height>579</height>
+    <width>904</width>
+    <height>537</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,17 +16,65 @@
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
     <layout class="QGridLayout" name="gridLayout_3">
-     <item row="2" column="0">
-      <widget class="QPushButton" name="DisplayThreeviews">
-       <property name="text">
-        <string>切换为生成模式</string>
+     <item row="2" column="1">
+      <widget class="QSpinBox" name="SetViewchoice">
+       <property name="minimum">
+        <number>1</number>
+       </property>
+       <property name="maximum">
+        <number>11</number>
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
+     <item row="4" column="0">
+      <widget class="QPushButton" name="RebuildCubbe">
+       <property name="text">
+        <string>重建异形体</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QPushButton" name="ResetRot">
+       <property name="text">
+        <string>重置旋转角</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2" rowspan="4" colspan="2">
+      <widget class="QGraphicsView" name="graphicview">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
       <widget class="QPushButton" name="BuildFromView">
        <property name="text">
         <string>从三视图建立异形体</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="DisplayExpand">
+       <property name="text">
+        <string>显示展开图</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QCommandLinkButton" name="commandLinkButton">
+       <property name="text">
+        <string>返回菜单</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="DisplayThreeviews">
+       <property name="text">
+        <string>切换为生成模式</string>
        </property>
       </widget>
      </item>
@@ -40,51 +88,17 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="DisplayExpand">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="savecube">
        <property name="text">
-        <string>显示展开图</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="RebuildCubbe">
-       <property name="text">
-        <string>重建异形体</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="ResetRot">
-       <property name="text">
-        <string>重置旋转角</string>
+        <string>PushButton</string>
        </property>
       </widget>
      </item>
      <item row="1" column="1">
-      <widget class="QSpinBox" name="SetViewchoice">
-       <property name="minimum">
-        <number>1</number>
-       </property>
-       <property name="maximum">
-        <number>11</number>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="2" rowspan="3" colspan="2">
-      <widget class="QGraphicsView" name="graphicview">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="3">
-      <widget class="QCommandLinkButton" name="commandLinkButton">
+      <widget class="QPushButton" name="readcube">
        <property name="text">
-        <string>返回菜单</string>
+        <string>PushButton</string>
        </property>
       </widget>
      </item>
