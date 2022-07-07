@@ -33,12 +33,20 @@
 #include<QTimer>
 #include<QFrame>
 #include <QtMath>
-#include <memory>
 #include<QFile>
 #include<QFileDialog>
-static int N = 4;
-static int squaresize = 40;
-
+#include <QApplication>
+#include <QLocale>
+#include <QTranslator>
+#include<QLabel>
+#include<QPropertyAnimation>
+#include<algorithm>
+#include<QList>
+#include<QListWidget>
+#include<QDateTime>
+extern int N;
+extern int squaresize;
+extern QString username;
 struct Point3{
     int x=0;
     int y=0;
@@ -63,6 +71,26 @@ struct ViewPoint{
     ViewPoint(int xx, int yy,int a, int b, int c, int d)
         :point(xx,yy),x_offset(a),y_offset(b),x_dir(c),y_dir(d){}
 };
+
+struct Difficulty{
+    int width;
+    int height;
+    int cubenum;
+    int timelimit;
+    int hintnum;
+    Difficulty(int a,int b, int c, int d, int e):width(a),height(b),cubenum(c),timelimit(d),hintnum(e){}
+};
+
+static const Difficulty dif1(5,5,2,60,1);
+static const Difficulty dif2(6,6,2,55,1);
+static const Difficulty dif3(6,6,3,50,1);
+static const Difficulty dif4(7,7,3,50,1);
+static const Difficulty dif5(8,8,3,50,1);
+static const Difficulty dif6(9,9,3,50,1);
+static const Difficulty dif7(10,10,4,50,2);
+static const Difficulty dif8(10,10,5,50,2);
+static const Difficulty dif9(10,10,6,50,2);
+static const QVector<Difficulty> difvec={dif1,dif2,dif3,dif4,dif5,dif6,dif7,dif8,dif9};
 
 static QVector<QVector<Point2>> offsets (
         {
@@ -431,6 +459,7 @@ static int random_unint(unsigned int min, unsigned int max)
     std::uniform_int_distribution<int> u(min, max);
     return u(e);
 }
+
 
 
 #endif // GLOBAL_H

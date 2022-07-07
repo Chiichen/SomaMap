@@ -11,5 +11,6 @@
         <file>pic/OringeSolidCube.bmp</file>
         <file>pic/GreenSolidCube.bmp</file>
         <file>pic/Somamap.png</file>
+        <file>music/Turkey.mp3</file>
     </qresource>
 </RCC>

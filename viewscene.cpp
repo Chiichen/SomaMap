@@ -26,7 +26,6 @@ ViewScene::~ViewScene()
 
 void ViewScene::on_BuildFromView_clicked()
 {
-
     cube = new Cube(this->square->OutputCube());
     square->SetCube(*cube);
     myglwidget->SetCube(*cube);
@@ -125,3 +124,11 @@ void ViewScene::on_readcube_clicked()
     }
 }
 
+void ViewScene::reinitialize()
+{
+    cube->rebuild();
+    myglwidget->SetCube(*cube);
+    square->SetCube(*cube);
+    myglwidget->RebuildCube();
+    square->DisplayExpand();
+}

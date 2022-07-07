@@ -5,7 +5,7 @@ class FigureMate : public QObject,public QGraphicsPixmapItem
 {
      Q_OBJECT
 public:
-    FigureMate();
+    FigureMate(QObject* parent=nullptr);
     void updateMate();
     void setRowAndCol(int xx,int yy){x=xx;y=yy;}
     void SetEditable(bool m){Editable = m;updateMate();}
@@ -18,11 +18,11 @@ protected:
     void mousePressEvent(QGraphicsSceneMouseEvent *event) override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 private:
-    int x;
-    int y;
+    int x=0;
+    int y=0;
     bool Editable = false;
     int state = 0;
-    int prestate;
+    int prestate=0;
 signals:
     void clicked(int x,int y);
 };

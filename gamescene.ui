@@ -14,6 +14,23 @@
    <string>Form</string>
   </property>
   <layout class="QGridLayout" name="gridLayout">
+   <item row="1" column="0" rowspan="2">
+    <widget class="QGraphicsView" name="graphicsView"/>
+   </item>
+   <item row="3" column="1">
+    <widget class="QCommandLinkButton" name="commandLinkButton">
+     <property name="text">
+      <string>返回菜单</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="showans">
+     <property name="text">
+      <string>提示答案</string>
+     </property>
+    </widget>
+   </item>
    <item row="3" column="0">
     <spacer name="horizontalSpacer">
      <property name="orientation">
@@ -40,25 +57,8 @@
      </property>
     </spacer>
    </item>
-   <item row="3" column="1">
-    <widget class="QCommandLinkButton" name="commandLinkButton">
-     <property name="text">
-      <string>返回菜单</string>
-     </property>
-    </widget>
-   </item>
    <item row="0" column="1">
     <widget class="QLCDNumber" name="lcdNumber"/>
-   </item>
-   <item row="2" column="1">
-    <widget class="QPushButton" name="showans">
-     <property name="text">
-      <string>开关答案显示</string>
-     </property>
-    </widget>
-   </item>
-   <item row="1" column="0" rowspan="2">
-    <widget class="QGraphicsView" name="graphicsView"/>
    </item>
   </layout>
  </widget>

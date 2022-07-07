@@ -14,7 +14,7 @@ public:
     GrandSquare(GrandSquare& g);
     void Updatesquare();
     void Initialize();
-
+    void showans();
     int width;
     int height;
     QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates;
@@ -23,9 +23,9 @@ public:
     int count;
     int cubenum;
     void operator =(GrandSquare&g);
-
+    QVector<QVector<QVector<FigureMate*>>> tempchange;
+    QVector<Point2> tempchange2;
 private:
-
 private slots:
     void select(int x,int y);
 signals:

@@ -10,43 +10,53 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    animatedwidget.cpp \
     cube.cpp \
     figuremate.cpp \
-    firstscene.cpp \
     gamescene.cpp \
+    global.cpp \
     grandsquare.cpp \
     keepratiowidget.cpp \
-    levelscene.cpp \
+    loadingscene.cpp \
     main.cpp \
     mainwindow.cpp \
     menuscene.cpp \
     myglwidget.cpp \
+    rankitem.cpp \
+    rankscene.cpp \
+    rankwidget.cpp \
     square.cpp \
     viewscene.cpp \
-    workerthread.cpp
+    welcomescene.cpp
 
 HEADERS += \
+    animatedwidget.h \
     cube.h \
     figuremate.h \
-    firstscene.h \
     gamescene.h \
     global.h \
     grandsquare.h \
     keepratiowidget.h \
-    levelscene.h \
+    loadingscene.h \
     mainwindow.h \
     menuscene.h \
     myglwidget.h \
+    rankitem.h \
+    rankscene.h \
+    rankwidget.h \
     square.h \
     viewscene.h \
-    workerthread.h
+    welcomescene.h
 
 FORMS += \
     gamescene.ui \
-    levelscene.ui \
+    loadingscene.ui \
     mainwindow.ui \
     menuscene.ui \
-    viewscene.ui
+    rankitem.ui \
+    rankscene.ui \
+    viewscene.ui \
+    welcomescene.ui
 
 TRANSLATIONS += \
     SomaMap_zh_CN.ts

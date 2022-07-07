@@ -83,25 +83,28 @@ bool bfscheck(QVector<QVector<int>>vec,QVector<QVector<QVector<QVector<FigureMat
 
 GrandSquare::GrandSquare(QObject *parent)
     : QGraphicsScene{parent},
-      width(10),
-      height(10),
+      width(5),
+      height(5),
       count(0),
-      cubenum(6)
+      cubenum(2)
 {
     Initialize();
 }
 
 void GrandSquare::Initialize()
 {
-    width=10;
-    height=10;
-    count=0;
-    cubenum=6;
+    if(!Mmates.empty())
+        for(auto &e:Mmates)
+            for(auto &g:e)
+                for(auto &h:g)
+                    for(auto &u:h) delete u;
+    if(!cubelist.empty())
+        for(auto &g:cubelist) delete g;
     Mmates.clear();
     cubelist.clear();
     StatesofMmates.clear();
     Mmates.resize(width);
-
+    count = 0;
     for(auto&e:Mmates)
     {
         e.resize(height);
@@ -126,7 +129,7 @@ void GrandSquare::Initialize()
             for(int xx=0;xx<N;xx++)
                 for(int yy=0;yy<N;yy++)
                 {
-                    this->Mmates[x][y][xx][yy] = new FigureMate;
+                    this->Mmates[x][y][xx][yy] = new FigureMate(this);
                     this->Mmates[x][y][xx][yy]->SetState(randomvec[xx][yy]);
                     connect(Mmates[x][y][xx][yy],&FigureMate::clicked,this,&GrandSquare::select);
                     this->Mmates[x][y][xx][yy]->setPos(QPointF(x*N*squaresize+xx*squaresize,y*N*squaresize+yy*squaresize));
@@ -227,25 +230,71 @@ void GrandSquare::select(int x,int y)
     }
 
 }
-GrandSquare::GrandSquare(GrandSquare& g)
-{
+//GrandSquare::GrandSquare(GrandSquare& g)
+//{
 
-    int width=g.width;
-    int height=g.height;
-    QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates=g.Mmates;
-    QVector<QVector<int>>StatesofMmates=g.StatesofMmates;//0表示未被选中干扰项，1表示是展开图的一部分且未被选中，2表示已选中的干扰项，3表示已选中的展开图，4表示已被确定的答案展开图
-    QVector<Cube*> cubelist=g.cubelist;
-    int count=g.count;
-    int cubenum=g.cubenum;
-}
-void GrandSquare::operator=(GrandSquare &g)
-{
+//    int width=g.width;
+//    int height=g.height;
+//    QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates=g.Mmates;
+//    QVector<QVector<int>>StatesofMmates=g.StatesofMmates;//0表示未被选中干扰项，1表示是展开图的一部分且未被选中，2表示已选中的干扰项，3表示已选中的展开图，4表示已被确定的答案展开图
+//    QVector<Cube*> cubelist=g.cubelist;
+//    int count=g.count;
+//    int cubenum=g.cubenum;
+//}
+//void GrandSquare::operator=(GrandSquare &g)
+//{
 
-    int width=g.width;
-    int height=g.height;
-    QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates=g.Mmates;
-    QVector<QVector<int>>StatesofMmates=g.StatesofMmates;//0表示未被选中干扰项，1表示是展开图的一部分且未被选中，2表示已选中的干扰项，3表示已选中的展开图，4表示已被确定的答案展开图
-    QVector<Cube*> cubelist=g.cubelist;
-    int count=g.count;
-    int cubenum=g.cubenum;
+//    int width=g.width;
+//    int height=g.height;
+//    QVector<QVector<QVector<QVector<FigureMate*>>>> Mmates=g.Mmates;
+//    QVector<QVector<int>>StatesofMmates=g.StatesofMmates;//0表示未被选中干扰项，1表示是展开图的一部分且未被选中，2表示已选中的干扰项，3表示已选中的展开图，4表示已被确定的答案展开图
+//    QVector<Cube*> cubelist=g.cubelist;
+//    int count=g.count;
+//    int cubenum=g.cubenum;
+//}
+
+void GrandSquare::showans()
+{
+    for(int x=0;x<width;x++)
+        for(int y=0;y<height;y++)
+            if(StatesofMmates[x][y]==1)
+            {
+                int move_x[]={0,0,1,-1,0};
+                int move_y[]={1,-1,0,0,0};
+                Point2 p1(x,y);
+                std::queue<Point2> que;
+                que.push(p1);
+                while(!que.empty())
+                {
+                    Point2 p = que.front();
+                    que.pop();
+                    for(int i=0; i<5; i++)
+                    {
+                        Point2 curp(p.x+move_x[i],p.y+move_y[i]);
+                        if(curp.x>=0&&curp.x<width&&curp.y>=0&&curp.y<height&&StatesofMmates[curp.x][curp.y]==1)
+                        {
+
+                            for(int xx=0;xx<N;xx++)
+                                for(int yy=0;yy<N;yy++)
+                                {
+                                    Mmates[curp.x][curp.y][xx][yy]->SetState( Mmates[curp.x][curp.y][xx][yy]->GetState()*4);
+                                    StatesofMmates[curp.x][curp.y]=2;
+                                    tempchange2.push_back(Point2(curp.x,curp.y));
+                                }
+                            tempchange.push_back(Mmates[curp.x][curp.y]);
+                            que.push(curp);
+                        }
+                    }
+                }
+                QTimer::singleShot(1000,[=]()->void{
+                    for(auto &e:tempchange)
+                        for(auto &a:e)
+                            for(auto &g:a)
+                                g->SetState(g->GetState()/4);
+                    for(auto &p:tempchange2) StatesofMmates[p.x][p.y]=1;
+                    tempchange2.clear();
+                    tempchange.clear();
+                });
+            return;
+            }
 }

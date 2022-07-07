@@ -1,7 +1,9 @@
 #include "figuremate.h"
 
-FigureMate::FigureMate()
+FigureMate::FigureMate(QObject* parent)
+    :QObject(parent),x(0),y(0)
 {
+
     this->setFlag(QGraphicsItem::ItemIsSelectable);
     this->setAcceptedMouseButtons(Qt::AllButtons);
 
@@ -33,7 +35,7 @@ void FigureMate::mousePressEvent(QGraphicsSceneMouseEvent *event)
         if(event->button()==Qt::LeftButton)
         {
             state = !state;
-            qDebug()<<x<<"\n"<<y;
+            qDebug()<<x<<"\nasdas"<<y;
             updateMate();
         }
 

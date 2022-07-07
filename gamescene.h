@@ -4,6 +4,7 @@
 #include"global.h"
 #include"cube.h"
 #include"grandsquare.h"
+#include"animatedwidget.h"
 
 namespace Ui {
 class GameScene;
@@ -18,15 +19,19 @@ public:
     ~GameScene();
     void settime(int k) {remaintime=k;}
     void reinitialize();
+    void setdifficulty(Difficulty dif);
     void setdifficulty(int timelimit,int cubenum){remaintime = timelimit;grandsquare->cubenum=cubenum;}
 signals:
     void returnmenu();
     void timeout();
+    void addrank(QString name,int score,QString level);
+    void loading();
+    void loadend();
+
 private slots:
     void on_commandLinkButton_clicked();
     void timer1sout();
     void win();
-
     void on_showans_clicked();
 
 private:
@@ -34,7 +39,11 @@ private:
     QTimer* timer1s;
     int remaintime;
     GrandSquare* grandsquare;
-    GrandSquare* nextgrandsquare;
+    int hintnum;
+    int timelimit;
+
+    int curdifficulty;
+    int totalrecord;
 };
 
 #endif // GAMESCENE_H

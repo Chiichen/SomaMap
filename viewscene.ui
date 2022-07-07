@@ -16,30 +16,6 @@
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>
     <layout class="QGridLayout" name="gridLayout_3">
-     <item row="2" column="1">
-      <widget class="QSpinBox" name="SetViewchoice">
-       <property name="minimum">
-        <number>1</number>
-       </property>
-       <property name="maximum">
-        <number>11</number>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="RebuildCubbe">
-       <property name="text">
-        <string>重建异形体</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="1">
-      <widget class="QPushButton" name="ResetRot">
-       <property name="text">
-        <string>重置旋转角</string>
-       </property>
-      </widget>
-     </item>
      <item row="0" column="2" rowspan="4" colspan="2">
       <widget class="QGraphicsView" name="graphicview">
        <property name="sizePolicy">
@@ -50,17 +26,24 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="BuildFromView">
+     <item row="1" column="0">
+      <widget class="QPushButton" name="savecube">
        <property name="text">
-        <string>从三视图建立异形体</string>
+        <string>保存异形立方体</string>
        </property>
       </widget>
      </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="DisplayExpand">
+     <item row="4" column="1">
+      <widget class="QPushButton" name="ResetRot">
        <property name="text">
-        <string>显示展开图</string>
+        <string>重置旋转角</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QPushButton" name="readcube">
+       <property name="text">
+        <string>读取异形立方体</string>
        </property>
       </widget>
      </item>
@@ -88,19 +71,50 @@
        </property>
       </widget>
      </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="savecube">
+     <item row="2" column="0">
+      <widget class="QPushButton" name="BuildFromView">
        <property name="text">
-        <string>PushButton</string>
+        <string>从三视图建立异形体</string>
        </property>
       </widget>
      </item>
-     <item row="1" column="1">
-      <widget class="QPushButton" name="readcube">
+     <item row="4" column="0">
+      <widget class="QPushButton" name="RebuildCubbe">
        <property name="text">
-        <string>PushButton</string>
+        <string>重建异形体</string>
        </property>
       </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QPushButton" name="DisplayExpand">
+       <property name="text">
+        <string>显示展开图</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <item>
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>选择展开图类型：</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QSpinBox" name="SetViewchoice">
+         <property name="minimum">
+          <number>1</number>
+         </property>
+         <property name="maximum">
+          <number>11</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
     </layout>
    </item>

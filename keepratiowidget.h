@@ -1,6 +1,5 @@
 #ifndef KEEPRATIOWIDGET_H
 #define KEEPRATIOWIDGET_H
-
 #include <QFrame>
 
 class KeepRatioWidget : public QFrame
